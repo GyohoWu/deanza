@@ -1,0 +1,8 @@
+
+
+@media (max-width: 670px) {
+    .small{
+        font-size:40%;
+        content: "math";
+    }
+}

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Gsociety" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+
+  <body>
+
+      <script type="text/javascript">
+          $(function(){
+            $('.top-detail').click(function(){
+
+              var $this = $(this).find('a');
+
+              if($this.text() === "Learn more"){
+                $this.text("close");
+                $('#more-text').css('display','active');
+                $('#more-text').slideDown();
+              }else{
+                $this.text("Learn more");
+                $('#more-text').slideUp();
+              }
+            });
+
+            $('.scroll').click(function(){
+
+              var href = $(this).attr('href');
+
+              $('html, body').animate({
+                'scrollTop': $(href).offset().top - 50
+
+              }, 900);
+            });
+
+
+            $('.i-1').hover(
+              function(){
+                $(this).next().fadeIn();
+              },
+              function(){
+                $(this).next().fadeOut();
+            });
+
+            $('.i-2').hover(
+              function(){
+                $(this).next().css("display","block");
+            });
+
+            $('.i-3').hover(
+              function(){
+                $(this).next().css("display","block");
+            });
+
+            $('#t_modal').click(function() {
+
+              $('.open_2').css('display','none');
+              $('.open_2').removeClass('open_2');
+
+              $('.open_3').css('display','none');
+              $('.open_3').removeClass('open_3');
+
+              $('.open_4').css('display','none');
+              $('.open_4').removeClass('open_4');
+
+              $('.open_5').css('display','none');
+              $('.open_5').removeClass('open_5');
+
+              var $answer = $('.transfer_modal');
+              if($answer.hasClass('open_1')) {
+                $answer.removeClass('open_1');
+                $answer.css("display", "none");
+
+              } else {
+                $answer.addClass('open_1');
+                $answer.css("display", "block");
+              }
+            });
+
+            $('#c_modal').click(function() {
+
+              $('.open_1').css('display','none');
+              $('.open_1').removeClass('open_1');
+
+              $('.open_3').css('display','none');
+              $('.open_3').removeClass('open_3');
+
+              $('.open_4').css('display','none');
+              $('.open_4').removeClass('open_4');
+
+              $('.open_5').css('display','none');
+              $('.open_5').removeClass('open_5');
+
+              var $answer = $('.class_modal');
+              if($answer.hasClass('open_2')) {
+                $answer.removeClass('open_2');
+                $answer.css("display", "none");
+
+              } else {
+                $answer.addClass('open_2');
+                $answer.css("display", "block");
+              }
+            });
+
+            $('#s_modal').click(function() {
+
+              $('.open_1').css('display','none');
+              $('.open_1').removeClass('open_1');
+
+              $('.open_2').css('display','none');
+              $('.open_2').removeClass('open_2');
+
+              $('.open_4').css('display','none');
+              $('.open_4').removeClass('open_4');
+
+              $('.open_5').css('display','none');
+              $('.open_5').removeClass('open_5');
+
+              var $answer = $('.study_modal');
+              if($answer.hasClass('open_3')) {
+                $answer.removeClass('open_3');
+                $answer.css("display", "none");
+
+              } else {
+                $answer.addClass('open_3');
+                $answer.css("display", "block");
+              }
+            });
+
+            $('#ch_modal').click(function() {
+
+              $('.open_1').css('display','none');
+              $('.open_1').removeClass('open_1');
+
+              $('.open_2').css('display','none');
+              $('.open_2').removeClass('open_2');
+
+              $('.open_3').css('display','none');
+              $('.open_3').removeClass('open_3');
+
+              $('.open_5').css('display','none');
+              $('.open_5').removeClass('open_5');
+
+              var $answer = $('.chat_modal');
+              if($answer.hasClass('open_4')) {
+                $answer.removeClass('open_4');
+                $answer.css("display", "none");
+
+              } else {
+                $answer.addClass('open_4');
+                $answer.css("display", "block");
+              }
+            });
+
+
+            $('#meet_modal').click(function() {
+
+              $('.open_1').css('display','none');
+              $('.open_1').removeClass('open_1');
+
+              $('.open_2').css('display','none');
+              $('.open_2').removeClass('open_2');
+
+              $('.open_3').css('display','none');
+              $('.open_3').removeClass('open_3');
+
+              $('.open_4').css('display','none');
+              $('.open_4').removeClass('open_4');
+
+              var $answer = $('.project_modal');
+              if($answer.hasClass('open_5')) {
+                $answer.removeClass('open_5');
+                $answer.css("display", "none");
+
+              } else {
+                $answer.addClass('open_5');
+                $answer.css("display", "block");
+              }
+            });
+
+
+            $('.tranfer-content').click(function(){
+
+              $('.open_1').css('display','none');
+              $('.open_1').removeClass('open_1');
+
+              $('.open_2').css('display','none');
+              $('.open_2').removeClass('open_2');
+
+              $('.open_3').css('display','none');
+              $('.open_3').removeClass('open_3');
+
+              $('.open_4').css('display','none');
+              $('.open_4').removeClass('open_4');
+            });
+
+            $('.click_disappear').click(function(){
+
+              $('.open_1').css('display','none');
+              $('.open_1').removeClass('open_1');
+
+              $('.open_2').css('display','none');
+              $('.open_2').removeClass('open_2');
+
+              $('.open_3').css('display','none');
+              $('.open_3').removeClass('open_3');
+
+              $('.open_4').css('display','none');
+              $('.open_4').removeClass('open_4');
+            });
+
+          });
+      </script>
+
+      <div class="transfer_modal modal">
+        <a href="/transfer/EECS" class="underline">EECS</a>
+        <a href="/transfer/economics" class="underline">Economics</a>
+        <a href="/transfer/media" class="underline">Media</a>
+        <a href="/transfer/stats" class="underline">Statistics</a>
+        <a href="/transfer/math" class="underline">Applied Math</a >
+        <a href="/transfer/business" class="underline">Business </a>
+        <a href="/transfer/philosophy" class="underline">Philosophy</a>
+        <a href="/transfer/linguitics" class="underline">Linguitics</a>
+      </div>
+
+      <div class="class_modal modal">
+          <a href="/classes/cis" class="underline">CIS</a>
+          <a href="/classes/econAcc" class="underline">Econ/Acc/Busi</a>
+          <a href="/classes/anthLing" class="underline">Anthlo/Ling</a>
+          <a href="/classes/science" class="underline">Science</a>
+          <a href="/classes/math" class="underline">Math</a >
+          <a href="/classes/english" class="underline">English</a>
+          <a href="/classes/arts" class="underline">Arts</a>
+          <a href="/classes/humanities" class="underline">Humanities</a>
+          <a href="/classes/psychSoc" class="underline">Psych/Socio</a>
+          <a href="/classes/poliHist" class="underline">Poli/Hist</a>
+          <a href="/classes/GEs" class="underline">GEs</a>
+          <a href="/classes/languages" class="underline">Languages</a>
+      </div>
+
+      <div class="study_modal modal">
+          <a href="/study/cis" class="underline">CIS</a>
+          <a href="/study/econ" class="underline">Economics</a>
+          <a href="/study/Accounting" class="underline">Accounting</a>
+          <a href="/study/physics" class="underline">Physics</a>
+          <a href="/study/math" class="underline">Math</a >
+          <a href="/study/chemistry" class="underline">Chemistry</a>
+          <a href="/study/biology" class="underline">Biology</a>
+          <a href="/study/philosophy" class="underline">Philosophy</a>
+          <a href="/study/psychology" class="underline">Psychology</a>
+          <a href="/study/poli" class="underline">Poli science</a>
+          <a href="/study/GEs" class="underline">GEs</a>
+          <a href="/study/languages" class="underline">Languages</a>
+      </div>
+
+      <div class="chat_modal modal_2">
+        <a href="chat/restaurant">Restaurant</a>
+        <a href="chat/cafe">Cafe</a>
+        <a href="chat/professor">professors</a>
+        <a href="chat/film">Movies</a >
+      </div>
+
+      <div class="project_modal modal_2">
+        <a href="/project/lists">project list</a>
+        <a href="/project/post">post project</a>
+      </div>
+
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+    </div>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+    <% if flash[:error] %>
+      <div class="flash_error">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  prof: MyText
+  source: MyText
+  comment: MyText
+  rate: MyText
+  grade: MyText
+  success: MyText
+  sort: MyText
+
+two:
+  prof: MyText
+  source: MyText
+  comment: MyText
+  rate: MyText
+  grade: MyText
+  success: MyText
+  sort: MyText

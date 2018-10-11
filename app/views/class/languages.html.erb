@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GSociety</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="web-fonts-with-css/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+
+      <header>
+        <div class="container">
+          <div class="header-title">
+            <a href="/">
+              <image class="header-logo scroll" src = "/debook.jpg">
+            </a>
+            <ul class="header-menu-right">
+              <li>
+                <a href="/" class="underline">home</a>
+              </li>
+              <li>
+                <a class="underline" id="t_modal">transfer</a>
+              </li>
+              <li>
+                <a class="underline" id="c_modal">classes</a>
+              </li>
+              <li>
+                <a class="underline" id="s_modal">study</a>
+              </li>
+              <li>
+                <a  class="underline" id="ch_modal">chat</a>
+              </li>
+              <li>
+                <a  class="underline">poll</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+    <div class="click_disappear">
+
+        <div id = "classes" class="class_section class-info">
+          <div class="section-title">
+            <h2>classes</h2>
+          </div>
+          <p>
+            Share your thoughts!<br>whose class should I take or shouldn't?
+          </p>
+          <div class="container-2">
+            <a href="/class/japa2" class="subject yellow">Japanese 2</a>
+            <a href="/class/japa3" class="subject yellow">Japanese 3</a>
+            <a href="/class/mand2" class="subject yellow">Mandarin 2</a>
+            <a href="/class/mand3" class="subject yellow">Mandarin 3</a>
+            <a href="/class/french2" class="subject yellow">French 2</a>
+            <a href="/class/french3" class="subject yellow">French 3</a>
+            <a href="/class/ger2" class="subject yellow">Germany 2</a>
+            <a href="/class/ger3" class="subject yellow">Germany 3</a>
+            <a href="/class/kore2" class="subject yellow">Korean 2</a>
+            <a href="/class/kore3" class="subject yellow">Korean 3</a>
+            <a href="/class/ital2" class="subject yellow">Italian 2</a>
+            <a href="/class/ital3" class="subject yellow">Italian 3</a>
+            <a href="/class/russ2" class="subject yellow">Russian 2</a>
+            <a href="/class/russ3" class="subject yellow">Russian 3</a>
+            <a href="/class/spanish2" class="subject yellow">Spanish 2</a>
+            <a href="/class/spanish3" class="subject yellow">Spanish 3</a>
+
+           </div>
+
+          </div>
+
+
+      <div class="posts-new">
+        <div class="container">
+          <h1 class="rate">search rate by professor name</h1>
+          <%= form_tag("/class/search/GEs") do %>
+            <div class="form">
+              <div class="form-body">
+                <i class="fas fa-search"></i><input class = "search" name="name" placeholder="professor name">
+                <p class="choose_class">select class</p>
+                <select name="name_2">
+                  <option selected hidden value = "none">Choose class</option>
+                  <option value="japa">Japanese</option>
+                  <option value="mand">Mandarin</option>
+                  <option value="french">French</option>
+                  <option value="ger">Germany</option>
+                  <option value="kore">Korean</option>
+                  <option value="ital">Italian</option>
+                  <option value="russ">Russian</option>
+                  <option value="spanish">Spanish</option>
+                </select>
+                <input class = "input_bottom" type="submit" value = "search !">
+              </div>
+           <% end %>
+            </div>
+         </div>
+       </div>
+
+    </div>
+
+    <div class="social-section">
+      <div class="section-title">
+        Follow US!
+      </div>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+
+    <footer>
+       © 2018 Yaofeng Wu
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

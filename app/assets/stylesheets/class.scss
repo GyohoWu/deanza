@@ -1,0 +1,197 @@
+/* posts/index ================================ */
+
+.class-name{
+    font-size:50px;
+    margin-bottom:60px;
+}
+
+
+.notfound{
+    margin:300px 0;
+}
+
+.rate{
+    font-size:30px;
+}
+
+.posts-index{
+    margin-top:10%;
+}
+
+.class_section{
+    margin-top:5%;
+}
+
+
+
+/*---------*/
+.table_2{
+    padding-top: 0;
+    font-size:16px;
+    color:red;
+    height:250px;
+    width:90%;
+    margin-bottom:5%;
+    border-spacing: 10px 5px;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+.title-section{
+    padding-top:3%;
+}
+
+font{
+    display:block;
+    margin-bottom:5%;
+}
+
+.class_section a{
+}
+
+.comment li{
+    border-bottom: 1px solid #6b6a66;
+    padding-bottom: 1px;
+    margin-top:2%;
+}
+
+.like_function{
+    height:27%;
+    margin-bottom:5px;
+    float:right;
+    font-size:10px;
+}
+
+
+.fa-thumbs-down{
+    color:#a86b7a;
+    padding-top:5px;
+}
+
+.fa-thumbs-down:hover{
+    color:#a53d57;
+}
+
+.fa-thumbs-up{
+    color:#6b81a8;
+}
+
+.fa-thumbs-up:hover{
+    color:#3e64a5;
+}
+
+.like_function p{
+    font-size:16px;
+    color:#505050;
+    margin-top:4px;
+
+}
+
+.to_down{
+    padding-top:2px;
+}
+
+.rate_box{
+    float:left;
+    margin-right:5px;
+    font-size:30px;
+    margin:20px;
+}
+
+
+.space{
+    border-right: 1px solid rgb(216, 218, 223);
+    width:25%;
+}
+
+.form-error {
+  color: #ff4d75;
+}
+
+/*---------*/
+
+
+/* posts/comment ========================== */
+
+.comment{
+    float:left;
+}
+
+.fit-words{
+    display:block;
+    width:100%;
+    word-wrap:break-word;
+}
+
+
+/* posts/new ================================ */
+
+.posts-new{
+    margin-bottom:5%;
+}
+
+.short-ver-1{
+    height: 30px;
+    width:200px;
+}
+
+.short-ver{
+    height:40px;
+    width:250px;
+}
+
+.long-ver{
+    height:80px;
+    width:300px;
+}
+
+.input{
+    margin-top:3%;
+}
+
+.input_bottom{
+    background-color:rgba(28, 175, 161,0.8);
+    color:white;
+    height:45px;
+    width:80px;
+    font-size:15px;
+    cursor:pointer;
+}
+
+.input_bottom:hover{
+    background-color:rgb(28, 175, 161);
+}
+
+.search{
+    height: 30px;
+    width:200px;
+    font-size:20px;
+}
+
+.posts-new select{
+    margin-right:26%;
+    margin-bottom:0;
+}
+
+.choose_class{
+    margin-top:3%;
+    font-size:120%;
+}
+
+
+
+textarea {
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid rgb(216, 218, 223);
+  resize: none;
+}
+
+.posts-new textarea::-webkit-input-placeholder {
+  font-size: 24px;
+  opacity: 0.5;
+}
+
+p{
+    color:black;
+}

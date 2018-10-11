@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GSociety</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="web-fonts-with-css/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+
+      <header>
+        <div class="container">
+          <div class="header-title">
+            <a href="/">
+              <image class="header-logo scroll" src = "/debook.jpg">
+            </a>
+            <ul class="header-menu-right">
+              <li>
+                <a href="/" class="underline">home</a>
+              </li>
+              <li>
+                <a class="underline" id="t_modal">transfer</a>
+              </li>
+              <li>
+                <a class="underline" id="c_modal">classes</a>
+              </li>
+              <li>
+                <a class="underline" id="s_modal">study</a>
+              </li>
+              <li>
+                <a  class="underline" id="ch_modal">chat</a>
+              </li>
+              <li>
+                <a  class="underline">poll</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+    <div class="click_disappear">
+
+        <div class="posts-index">
+          <div class="container">
+            <h1 class="class-name"><%= @className %></h1>
+          </div>
+
+            <% @posts.each do |post| %>
+              <div class="container">
+                <table class="table_2">
+                    <tr>
+                        <td rowspan="2" class="space">
+                            <font color= #505050><%= post.created_at.to_s.split(' ')[0] %></font>
+                            <font color= #505050><%= "name: " + post.prof  %></font>
+                            <font color= #505050><%= "rate: " + post.rate %></font>
+                            <font color= #505050><%= "grade received: " + post.grade %></font>
+                            <font color= #505050>useful website:</p>
+                            <font color= #505050 class="fit-words"><%= post.source  %></font>
+                        </td>
+                        <td class="padding">
+                            <div class="comment">
+                                <font color= #505050 class="title-section">comments:</font>
+                                <font color= #505050 class="fit-words"><%= post.comment %></font>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="success">
+                                <font color= #505050 class="title-section">to be succeed:</font>
+                                <font color= #505050 class="fit-words"><%= post.success %></font>
+                            </div>
+                            <div class="like_function">
+                                <% if not Dislike.find_by(id: @current_user, dislike_id: @dislike_post )%>
+                                    <% if Like.find_by(id: @current_user, like_id: @like_post) %>
+                                      <%= link_to("/likes/#{post.id}/#{post.sort}/destroy", {method: "post"}) do %>
+                                        <div class="rate_box">
+                                            <span class="fas fa-thumbs-up"></span>
+                                            <p class="to_down"><%= Like.where(like_id: post.id).to_s + " likes" %></p>
+                                        </div>
+                                      <% end %>
+                                    <% else %>
+                                      <%= link_to("/likes/#{post.id}/#{post.sort}/create", {method: "post"}) do %>
+                                      <div class="rate_box">
+                                          <span class="fas fa-thumbs-up like_btn"></span>
+                                          <p class="to_down"><%= Like.where(like_id: post.id).count.to_s + " likes" %></p>
+                                      </div>
+                                      <% end %>
+                                    <% end %>
+                                <% end %>
+
+                                <% if not Like.find_by(id: @current_user, like_id: @like_post) %>
+                                    <% if Dislike.find_by(id: @current_user, dislike_id: @dislike_post) %>
+                                      <%= link_to("/dislikes/#{post.id}/#{post.sort}/destroy", {method: "post"}) do %>
+                                          <div class="rate_box">
+                                              <span class="fas fa-thumbs-down"></span>
+                                              <p><%= Dislike.where(dislike_id: post.id).count.to_s + " dislikes"%></p>
+                                          </div>
+                                      <% end %>
+                                    <% else %>
+                                      <%= link_to("/dislikes/#{post.id}/#{post.sort}/create", {method: "post"}) do %>
+                                          <div class="rate_box">
+                                              <span class="fas red fa-thumbs-down like_btn"></span>
+                                              <p><%= Dislike.where(dislike_id: post.id).count.to_s + " dislikes"%> </p>
+                                          </div>
+                                      <% end %>
+                                    <% end %>
+                                <% end %>
+
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+            <% end %>
+          </div>
+
+
+        <div class="posts-new">
+          <div class="container">
+            <h1 class="rate">leave comments</h1>
+            <%= form_tag("/class/create/#{@create}") do %>
+              <div class="form">
+                <div class="form-body">
+                  <% @post.errors.full_messages.each do |message| %>
+                    <div class="form-error">
+                        <% if message.include? "Prof" %>
+                            <%= message %>
+                        <% end %>
+                    </div>
+                  <% end %>
+                  <textarea class = "short-ver-1" name= "prof" placeholder="professor name"><%= @post.prof %></textarea>
+                  <p>recommend rate</p>
+                  <% @post.errors.full_messages.each do |message| %>
+                    <div class="form-error">
+                        <% if message.include? "Rate" %>
+                            choose your rate
+                        <% end %>
+                    </div>
+                  <% end %>
+                  <select name="rate">
+                    <option selected disabled hidden>Choose rate</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </select>
+                  <p>grade received</p>
+                  <% @post.errors.full_messages.each do |message| %>
+                    <div class="form-error">
+                        <% if message.include? "Grade" %>
+                            select your grade
+                        <% end %>
+                    </div>
+                  <% end %>
+                  <select name="grade">
+                    <option selected disabled hidden>Choose grade</option>
+                    <option value="A+">A+</option>
+                    <option value="A">A</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B">B</option>
+                    <option value="B-">B-</option>
+                    <option value="C+">C+</option>
+                    <option value="C">C</option>
+                    <option value="not sure yet">not sure yet</option>
+                    <option value="drop/withdraw">drop/withdraw</option>
+                  </select>
+
+                  <p>share any useful web sites or textbook</p>
+                  <% @post.errors.full_messages.each do |message| %>
+                    <div class="form-error">
+                        <% if message.include? "Source" %>
+                            <%= message %>
+                        <% end %>
+                    </div>
+                  <% end %>
+                  <textarea class = "short-ver" name= "source" placeholder="useful sources if any"><%= @post.source %></textarea>
+                  <p>write about your thoughts</p>
+                  <% @post.errors.full_messages.each do |message| %>
+                    <div class="form-error">
+                        <% if message.include? "Comment" %>
+                            <%= message %>
+                        <% end %>
+                    </div>
+                  <% end %>
+                  <textarea class = "long-ver" name= "comment" placeholder="your thoughts"><%= @post.comment %></textarea>
+                  <p>how to get a good grade in this class?</p>
+                  <% @post.errors.full_messages.each do |message| %>
+                    <div class="form-error">
+                        <% if message.include? "Success" %>
+                            <%= message %>
+                        <% end %>
+                    </div>
+                  <% end %>
+                  <textarea class = "long-ver" name= "success" placeholder="how to success for this class"><%= @post.success %></textarea>
+                  <div class="input">
+                      <input class = "input_bottom" type="submit" value="submit">
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+
+    <div class="social-section">
+      <div class="section-title">
+        Follow US!
+      </div>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+
+    <footer>
+       © 2018 Yaofeng Wu
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GSociety</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="web-fonts-with-css/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+
+      <header>
+        <div class="container">
+          <div class="header-title">
+            <a href="/">
+              <image class="header-logo scroll" src = "/debook.jpg">
+            </a>
+            <ul class="header-menu-right">
+              <li>
+                <a href="/" class="underline">home</a>
+              </li>
+              <li>
+                <a class="underline" id="t_modal">transfer</a>
+              </li>
+              <li>
+                <a class="underline" id="c_modal">classes</a>
+              </li>
+              <li>
+                <a class="underline" id="s_modal">study</a>
+              </li>
+              <li>
+                <a  class="underline" id="ch_modal">chat</a>
+              </li>
+              <li>
+                <a  class="underline">poll</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+    <div class="click_disappear">
+        <div class="question_section">
+            <div class="container">
+              <h1 class="class-name-2"><%= @className %></h1>
+            </div>
+            <% if @posts.length == 0 %>
+            <div class="container-2">
+              <h1 class="class-name">no questions posted yet :( </h1>
+            </div>
+            <% else %>
+                <% @posts.each do |post| %>
+                    <div class="container">
+                        <div class="question_post">
+                            <%= link_to(post.title, "/answers/#{post.id}")%>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <div class="container-2">
+                <div class="post_link">
+                    <%= link_to("post your questions", "/post/#{@sort}")%>
+                </div>
+            </div>
+
+            <div class="posts-new">
+              <div class="container">
+                <h1 class="rate">search questions by professor name</h1>
+                <%= form_tag("/study/search/#{@sort}") do %>
+                  <div class="form">
+                    <div class="form-body">
+                      <i class="fas fa-search"></i><input class = "search" name="name" placeholder="professor name">
+                      <input class = "input_bottom" type="submit" value = "search !">
+                    </div>
+                 <% end %>
+                  </div>
+               </div>
+             </div>
+        </div>
+
+    </div>
+
+    <div class="social-section">
+      <div class="section-title">
+        Follow US!
+      </div>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+
+    <footer>
+       © 2018 Yaofeng Wu
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

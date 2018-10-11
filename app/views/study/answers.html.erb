@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GSociety</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="web-fonts-with-css/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+
+      <header>
+        <div class="container">
+          <div class="header-title">
+            <a href="/">
+              <image class="header-logo scroll" src = "/debook.jpg">
+            </a>
+            <ul class="header-menu-right">
+              <li>
+                <a href="/" class="underline">home</a>
+              </li>
+              <li>
+                <a class="underline" id="t_modal">transfer</a>
+              </li>
+              <li>
+                <a class="underline" id="c_modal">classes</a>
+              </li>
+              <li>
+                <a class="underline" id="s_modal">study</a>
+              </li>
+              <li>
+                <a  class="underline" id="ch_modal">chat</a>
+              </li>
+              <li>
+                <a  class="underline">poll</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+
+    <div class="click_disappear">
+        <div class="post_page">
+            <div class="posts-new">
+              <div class="container">
+                <h1 class="class-title"><%= @question[0].title %></h1>
+
+                <div class="question">
+                    <%= @question[0].question %>
+                </div>
+
+                <div class="answer_section">
+                    <div class="answer">
+                        Answers
+                    </div>
+
+                    <% if @posts.length == 0 %>
+                    <div class="container-2">
+                        <h1 class="class-name">no answers posted yet :( </h1>
+                    </div>
+                    <% else %>
+                    <% @posts.each do |post| %>
+                        <table class="answer_column">
+                            <h3 class="post_answer"><%= post.answer %></h3>
+                            <div class="comment">
+                                <div class="comment_1">
+                                    <% Comment.where(a_id: post.id).each do |comment| %>
+                                        <li><%= comment.content %></li>
+                                    <% end %>
+                                </div>
+                                <div class="comment_2">
+                                    <div class="post_comment">
+                                        <%= form_tag("/comment/create/#{post.id}") do %>
+                                            <% @comment.errors.full_messages.each do |message| %>
+                                              <div class="form-error">
+                                                  <% if message.include? "Content" %>
+                                                      <%= message %>
+                                                  <% end %>
+                                              </div>
+                                            <% end %>
+                                             <textarea class= "comment" name="com" placeholder="add comment"><%= @comment.content %></textarea>
+                                             <input class = "input input_bottom_2" type="submit" value="submit">
+                                        <% end %>
+                                    </div>
+                                    <div class="like">
+                                        <% if not Dislike.find_by(id: @current_user, dislike_id: @dislike_post )%>
+                                            <% if Like.find_by(id: @current_user, like_id: @like_post) %>
+                                              <%= link_to("/likes/#{post.id}/#{@class_2}/destroy", {method: "post"}) do %>
+                                                <div class="rate_box">
+                                                    <span class="fas fa-thumbs-up"></span>
+                                                    <p class="to_down"><%= Like.where(like_id: post.id).to_s + " likes" %></p>
+                                                </div>
+                                              <% end %>
+                                            <% else %>
+                                              <%= link_to("/likes/#{post.id}/#{@class_2}/create", {method: "post"}) do %>
+                                              <div class="rate_box">
+                                                  <span class="fas fa-thumbs-up like_btn"></span>
+                                                  <p class="to_down"><%= Like.where(like_id: post.id).count.to_s + " likes" %></p>
+                                              </div>
+                                              <% end %>
+                                            <% end %>
+                                        <% end %>
+
+                                        <% if not Like.find_by(id: @current_user, like_id: @like_post) %>
+                                            <% if Dislike.find_by(id: @current_user, dislike_id: @dislike_post) %>
+                                              <%= link_to("/dislikes/#{post.id}/#{@class_2}/destroy", {method: "post"}) do %>
+                                                  <div class="rate_box">
+                                                      <span class="fas fa-thumbs-down"></span>
+                                                      <p><%= Dislike.where(dislike_id: post.id).count.to_s + " dislikes"%></p>
+                                                  </div>
+                                              <% end %>
+                                            <% else %>
+                                              <%= link_to("/dislikes/#{post.id}/#{@class_2}/create", {method: "post"}) do %>
+                                                  <div class="rate_box">
+                                                      <span class="fas red fa-thumbs-down like_btn"></span>
+                                                      <p><%= Dislike.where(dislike_id: post.id).count.to_s + " dislikes"%> </p>
+                                                  </div>
+                                              <% end %>
+                                            <% end %>
+                                        <% end %>
+                                       </div>
+                                </div>
+                            </div>
+                        </table>
+                     <div class="border"></div>
+                     <% end %>
+                   <% end %>
+                </div>
+
+                <%= form_tag("/answer/create/#{@question[0].id}") do %>
+                    <div class="form-body">
+                        <h1 class="rate">post your answer</h1>
+                        <p>write your answer</p>
+                        <% @post.errors.full_messages.each do |message| %>
+                          <div class="form-error">
+                              <% if message.include? "Answer" %>
+                                  <%= message %>
+                              <% end %>
+                          </div>
+                        <% end %>
+                        <textarea class = "long-ver" name= "answer" placeholder="questions"><%= @post.answer %></textarea>
+
+                        <div class="input">
+                          <input class = "input_bottom" type="submit" value="submit">
+                        </div>
+                    </div>
+                <% end %>
+
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-section">
+      <div class="section-title">
+        Follow US!
+      </div>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+
+    <footer>
+       © 2018 Yaofeng Wu
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

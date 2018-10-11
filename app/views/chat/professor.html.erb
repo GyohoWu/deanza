@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>GSociety</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="web-fonts-with-css/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+  <body>
+
+      <header>
+        <div class="container">
+          <div class="header-title">
+            <a href="/">
+              <image class="header-logo scroll" src = "/debook.jpg">
+            </a>
+            <ul class="header-menu-right">
+              <li>
+                <a href="/" class="underline">home</a>
+              </li>
+              <li>
+                <a class="underline" id="t_modal">transfer</a>
+              </li>
+              <li>
+                <a class="underline" id="c_modal">classes</a>
+              </li>
+              <li>
+                <a class="underline" id="s_modal">study</a>
+              </li>
+              <li>
+                <a  class="underline" id="ch_modal">chat</a>
+              </li>
+              <li>
+                <a  class="underline">poll</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+
+    <div class="click_disappear">
+        <div class="question_section">
+            <div class="container">
+              <h1 class="class-name-2">Professor</h1>
+            </div>
+            <% if @posts.length == 0 %>
+            <div class="container-2">
+              <h1 class="class-name">no comments posted yet :( </h1>
+            </div>
+            <% else %>
+                <% @posts.each do |post| %>
+                    <div class="container">
+                        <div class="question_post-2">
+                            <%= post.name %>
+                        </div>
+                    </div>
+                <% end %>
+            <% end %>
+
+            <div class="container">
+
+                <%= form_tag("/chat/create/#{3}") do %>
+                    <div class="form-body">
+                        <h1 class="rate">your favorite professor</h1>
+                        <p>write your comment</p>
+                        <% @post.errors.full_messages.each do |message| %>
+                          <div class="form-error">
+                              <% if message.include? "Name" %>
+                                  <%= message %>
+                              <% end %>
+                          </div>
+                        <% end %>
+                        <textarea class = "long-ver" name= "name" placeholder="professor"><%= @post.name %></textarea>
+
+                        <div class="input">
+                          <input class = "input_bottom" type="submit" value="submit">
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="social-section">
+      <div class="section-title">
+        Follow US!
+      </div>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+
+    <footer>
+       © 2018 Yaofeng Wu
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

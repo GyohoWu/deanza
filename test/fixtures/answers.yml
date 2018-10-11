@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  answer: MyText
+  q_id: MyString
+  integer: MyString
+
+two:
+  answer: MyText
+  q_id: MyString
+  integer: MyString
