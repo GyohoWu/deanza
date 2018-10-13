@@ -15,7 +15,8 @@
             $('.top-detail').click(function(){
 
               var $this = $(this).find('a');
-
+              $this.text("close");
+/*
               if($this.text() === "Learn more"){
                 $this.text("close");
                 $('#more-text').css('display','active');
@@ -24,6 +25,7 @@
                 $this.text("Learn more");
                 $('#more-text').slideUp();
               }
+              */
             });
 
             $('.scroll').click(function(){
@@ -257,10 +259,10 @@
       </div>
 
       <div class="chat_modal modal_2">
-        <a href="chat/restaurant">Restaurant</a>
-        <a href="chat/cafe">Cafe</a>
-        <a href="chat/professor">professors</a>
-        <a href="chat/film">Movies</a >
+        <a href="/chat/restaurant">Restaurant</a>
+        <a href="/chat/cafe">Cafe</a>
+        <a href="/chat/professor">professors</a>
+        <a href="/chat/film">Movies</a >
       </div>
 
       <div class="project_modal modal_2">

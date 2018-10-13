@@ -97,6 +97,7 @@ Rails.application.routes.draw do
     get "chat/professor" => "chat#professor"
     get "chat/film" => "chat#film"
 
+
     post "/chat/create/:id" => "chat#create"
     get "/chat/create/:id" => "chat#redirect"
 end
