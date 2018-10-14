@@ -87,17 +87,19 @@
                                     <div class="like">
                                         <% if not Dislike.find_by(id: @current_user, dislike_id: @dislike_post )%>
                                             <% if Like.find_by(id: @current_user, like_id: @like_post) %>
+                                            <!--  使われない　--->
                                               <%= link_to("/likes/#{post.id}/#{@class_2}/destroy", {method: "post"}) do %>
                                                 <div class="rate_box">
                                                     <span class="fas fa-thumbs-up"></span>
-                                                    <p class="to_down"><%= Like.where(like_id: post.id).to_s + " likes" %></p>
+                                                    <p class="to_down"><%= Likefora.where(like_id: post.id).to_s + " likes" %></p>
                                                 </div>
                                               <% end %>
+                                            <!--  --->
                                             <% else %>
-                                              <%= link_to("/likes/#{post.id}/#{@class_2}/create", {method: "post"}) do %>
+                                              <%= link_to("/likes_a/#{post.id}/create", {method: "post"}) do %>
                                               <div class="rate_box">
                                                   <span class="fas fa-thumbs-up like_btn"></span>
-                                                  <p class="to_down"><%= Like.where(like_id: post.id).count.to_s + " likes" %></p>
+                                                  <p class="to_down"><%= Likefora.where(like_id: post.id).count.to_s + " likes" %></p>
                                               </div>
                                               <% end %>
                                             <% end %>
@@ -105,17 +107,19 @@
 
                                         <% if not Like.find_by(id: @current_user, like_id: @like_post) %>
                                             <% if Dislike.find_by(id: @current_user, dislike_id: @dislike_post) %>
+                                            <!--  使われない　--->
                                               <%= link_to("/dislikes/#{post.id}/#{@class_2}/destroy", {method: "post"}) do %>
                                                   <div class="rate_box">
                                                       <span class="fas fa-thumbs-down"></span>
                                                       <p><%= Dislike.where(dislike_id: post.id).count.to_s + " dislikes"%></p>
                                                   </div>
                                               <% end %>
+                                             <!--  --->
                                             <% else %>
-                                              <%= link_to("/dislikes/#{post.id}/#{@class_2}/create", {method: "post"}) do %>
+                                              <%= link_to("/dislikes_a/#{post.id}/create", {method: "post"}) do %>
                                                   <div class="rate_box">
                                                       <span class="fas red fa-thumbs-down like_btn"></span>
-                                                      <p><%= Dislike.where(dislike_id: post.id).count.to_s + " dislikes"%> </p>
+                                                      <p><%= Dislikefora.where(dislike_id: post.id).count.to_s + " dislikes"%> </p>
                                                   </div>
                                               <% end %>
                                             <% end %>

@@ -15,7 +15,6 @@
             $('.top-detail').click(function(){
 
               var $this = $(this).find('a');
-              //$this.text("close");
 
               if($this.hasClass('show')) {
                   $this.text("close");
@@ -27,16 +26,6 @@
                   $('#more-text').slideUp();
                   $this.addClass('show');
               }
-/*
-              if($this.text() === "Learn more"){
-                $this.text("close");
-                $('#more-text').css('display','active');
-                $('#more-text').slideDown();
-              }else{
-                $this.text("Learn more");
-                $('#more-text').slideUp();
-              }
-              */
             });
 
             $('.scroll').click(function(){

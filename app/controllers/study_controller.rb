@@ -36,7 +36,7 @@ class StudyController < ApplicationController
   def languages
   end
 
-  
+
   def posts
   end
 
@@ -143,6 +143,7 @@ class StudyController < ApplicationController
         @id = params[:id]
         @question = Question.where(id: @id)
         @posts = Answer.where(q_id: @id)
+        @comment = Comment.new
         flash[:error] = "failed to post "
         render("/study/answers")
       end

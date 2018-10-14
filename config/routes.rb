@@ -7,6 +7,12 @@ Rails.application.routes.draw do
     post "dislikes/:post_id/:sort/create" => "dislikes#create"
     post "dislikes/:post_id/:sort/destroy" => "dislikes#destroy"
 
+    #like method answer part
+
+    post "likes_a/:post_id/create" => "likes_a#create"
+    post "dislikes_a/:post_id/create" => "dislikes_a#create"
+
+
     #transfer
 
     get '/' => "home#top"

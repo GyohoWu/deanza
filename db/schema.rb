@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_194622) do
+ActiveRecord::Schema.define(version: 2018_10_14_230838) do
 
   create_table "answers", force: :cascade do |t|
     t.text "answer"
@@ -53,8 +53,32 @@ ActiveRecord::Schema.define(version: 2018_09_23_194622) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "dislike_as", force: :cascade do |t|
+    t.integer "dislike_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dislikeforas", force: :cascade do |t|
+    t.integer "dislike_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dislikes", force: :cascade do |t|
     t.integer "dislike_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "like_as", force: :cascade do |t|
+    t.integer "like_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likeforas", force: :cascade do |t|
+    t.integer "like_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
