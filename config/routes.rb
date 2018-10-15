@@ -70,8 +70,9 @@ Rails.application.routes.draw do
 
     get "/study/:sort" => "study#questions"
     get "/post/:sort" => "study#post"
+    
     post "/study/search/:sort" => "study#search"
-    get "/class/search/:sort" => "study#redirect"
+    get "/study/search/:sort" => "study#redirect"
 
     post "/study/create/:sort" => "study#create"
     get "/study/create/:sort" => "study#redirect"

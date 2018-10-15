@@ -64,7 +64,7 @@ class ClassController < ApplicationController
 
 
     def redirect
-      redirect_to("/class/#{params[:sort]}")
+      redirect_to("/classes/#{params[:sort]}")
     end
 
     def cis
