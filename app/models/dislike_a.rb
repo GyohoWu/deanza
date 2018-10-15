@@ -1,0 +1,2 @@
+class DislikeA < ApplicationRecord
+end
