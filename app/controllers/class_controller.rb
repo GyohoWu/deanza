@@ -51,7 +51,10 @@ class ClassController < ApplicationController
           @name = params[:name]
           @class_2 = params[:class]
           if params[:name_2].nil?
+              @posts = Classpost.where("prof like ?", "%#{params[:name]}%").all.order(created_at: :desc)
+=begin
               @posts = Classpost.where("sort like ?", "%#{params[:class]}%").where("prof like ?", "%#{params[:name]}%").all.order(created_at: :desc)
+=end
               @class_1 = params[:class]
           elsif params[:name_2] == "none"
               redirect_to("/classes/#{params[:class]}")
