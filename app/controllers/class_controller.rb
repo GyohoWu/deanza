@@ -46,17 +46,17 @@ class ClassController < ApplicationController
 
     def search
       if params[:name] == ""
-          redirect_to("/class/#{params[:class]}")
+          redirect_to("/classes/#{params[:class]}")
       else
           @name = params[:name]
           @class_2 = params[:class]
           if params[:name_2].nil?
-              @posts = Classpost.where("prof like ?", "%#{params[:name]}%").where("sort like ?", "%#{params[:class]}%").all.order(created_at: :desc)
+              @posts = Classpost.where("sort like ?", "%#{params[:class]}%").where("prof like ?", "%#{params[:name]}%").all.order(created_at: :desc)
               @class_1 = params[:class]
           elsif params[:name_2] == "none"
-              render("/class/#{params[:class]}")
+              redirect_to("/classes/#{params[:class]}")
           else
-              @posts = Classpost.where("prof like ?", "%#{params[:name]}%").where("sort like ?", "%#{params[:name_2]}%").all.order(created_at: :desc)
+              @posts = Classpost.where("sort like ?", "%#{params[:class]}%").where("prof like ?", "%#{params[:name]}%").all.order(created_at: :desc)
               @class_1 = params[:name_2]
           end
       end
