@@ -51,8 +51,9 @@ class ClassController < ApplicationController
           @name = params[:name]
           @class_2 = params[:class]
           if params[:name_2].nil?
-              @posts = Classpost.where("sort like ?", "%#{params[:class]}%").all.order(created_at: :desc)
+              @posts = Classpost.where("sort like ?", "%#{params[:class]}%").where("prof like ?", "%#{params[:name]}%").all.order(created_at: :desc)
 =begin
+              @posts = Question.where(sort: "#{params[:sort]}").where("prof like ?", "%#{params[:name]}%").all.order(created_at: :desc)
               @posts = Classpost.where("sort like ?", "%#{params[:class]}%").where("prof like ?", "%#{params[:name]}%").all.order(created_at: :desc)
 =end
               @class_1 = params[:class]
