@@ -51,8 +51,7 @@ class ClassController < ApplicationController
           @name = params[:name]
           @class_2 = params[:class]
           if params[:name_2].nil?
-              
-              @posts = Classpost.where("sort like ?", "%#{params[:class]}%").where("prof LIKE ?", '%' + params[:name] + '%').all.order(created_at: :desc)
+              @posts = Classpost.where("sort like ?", "%#{params[:class]}%").where("prof ILIKE ?", "%#{params[:name]}%").all.order(created_at: :desc)
 
 =begin
               @posts = Question.where(sort: "#{params[:sort]}").where("prof like ?", "%#{params[:name]}%").all.order(created_at: :desc)
@@ -62,7 +61,7 @@ class ClassController < ApplicationController
           elsif params[:name_2] == "none"
               redirect_to("/classes/#{params[:class]}")
           else
-              @posts = Classpost.where("sort like ?", "%#{params[:class]}%").where("prof ILIKE ?", "%#{params[:name]}%").all.order(created_at: :desc)
+              @posts = Classpost.where("sort ILIKE ?", "%#{params[:class]}%").where("prof ILIKE ?", "%#{params[:name]}%").all.order(created_at: :desc)
               @class_1 = params[:name_2]
           end
       end
