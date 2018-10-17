@@ -61,7 +61,7 @@ class ClassController < ApplicationController
           elsif params[:name_2] == "none"
               redirect_to("/classes/#{params[:class]}")
           else
-              @posts = Classpost.where("sort ILIKE ?", "%#{params[:class]}%").where("prof ILIKE ?", "%#{params[:name]}%").all.order(created_at: :desc)
+              @posts = Classpost.where("sort like ?", "%#{params[:name_2]}%").where("prof ILIKE ?", "%#{params[:name]}%").all.order(created_at: :desc)
               @class_1 = params[:name_2]
           end
       end
