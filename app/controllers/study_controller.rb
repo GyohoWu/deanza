@@ -107,7 +107,7 @@ class StudyController < ApplicationController
       if params[:name] == ""
           redirect_to("/study/#{params[:sort]}")
       else
-          @posts = Question.where(sort: "#{params[:sort]}").where("prof like ?", "%#{params[:name]}%").all.order(created_at: :desc)
+          @posts = Question.where(sort: "#{params[:sort]}").where("prof ILIKE ?", "%#{params[:name]}%").all.order(created_at: :desc)
           @sort = params[:sort]
           arr = params[:sort].split(/(\d+)/)
           classList = {"cis" => "CIS", "bio" => "Biology", "chem" => "Chemistry", "phys" =>"Physics", "art" => "Art", "dance" =>"Dance", "photo" =>"Photograghy",
