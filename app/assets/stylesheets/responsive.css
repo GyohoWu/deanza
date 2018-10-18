@@ -2,11 +2,8 @@
 
 @media (max-width: 1000px) {
     .small{
-        font-size:40%;
+        font-size:50%;
         content: "math";
     }
 
-    header{
-        height: 10px;
-    }
 }
