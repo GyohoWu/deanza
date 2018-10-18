@@ -3,7 +3,10 @@
 @media (max-width: 1000px) {
     .small{
         font-size:50%;
-        content: "math";
+    }
+
+    .header-menu-right a{
+        line-height: 40px;
     }
 
 }
