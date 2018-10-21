@@ -1,0 +1,19 @@
+current directory: /Users/gyoho/Desktop/web/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+/Users/gyoho/.rvm/rubies/ruby-2.5.1/bin/ruby -r ./siteconf20181018-11698-dnr2hj.rb extconf.rb
+creating Makefile
+
+current directory: /Users/gyoho/Desktop/web/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" clean
+
+current directory: /Users/gyoho/Desktop/web/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR="
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/gyoho/Desktop/web/vendor/bundle/ruby/2.5.0/gems/byebug-10.0.2/ext/byebug
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 byebug.bundle ./.gem.20181018-11698-hsy4g0/byebug
