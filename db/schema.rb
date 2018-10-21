@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_230838) do
+ActiveRecord::Schema.define(version: 2018_10_20_213615) do
+
+  create_table "answerimages", force: :cascade do |t|
+    t.string "answer"
+    t.integer "q_id"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "answers", force: :cascade do |t|
     t.text "answer"
@@ -67,6 +75,12 @@ ActiveRecord::Schema.define(version: 2018_10_14_230838) do
 
   create_table "dislikes", force: :cascade do |t|
     t.integer "dislike_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
