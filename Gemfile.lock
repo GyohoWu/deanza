@@ -77,6 +77,10 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    dotenv (2.5.0)
+    dotenv-rails (2.5.0)
+      dotenv (= 2.5.0)
+      railties (>= 3.2, < 6.0)
     erubi (1.7.1)
     excon (0.62.0)
     execjs (2.7.0)
@@ -232,6 +236,7 @@ DEPENDENCIES
   carrierwave
   chromedriver-helper
   coffee-rails (~> 4.2)
+  dotenv-rails
   fog-aws
   jbuilder (~> 2.5)
   jquery-rails
