@@ -8,6 +8,8 @@ gem 'jquery-ui-rails'
 gem 'carrierwave'
 gem 'rmagick'
 
+gem 'fog-aws'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 
