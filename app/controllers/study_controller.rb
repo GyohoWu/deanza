@@ -127,16 +127,15 @@ class StudyController < ApplicationController
   def answers
       @id = params[:id]
       @question = Question.where(id: @id)
-      @posts = Answerimage.where(q_id: @id)
-      @post = Answerimage.new
+      @posts = Answer.where(q_id: @id)
+      @post = Answer.new
       @comment = Comment.new
   end
 
   def create_A
 
-      @post = Answerimage.new(permit_params)
+      @post = Answer.new(answer: params[:answer], q_id: params[:id])
       @post.q_id = params[:id]
-      #@post = Answer.new(answer: params[:answer], q_id: params[:id])
       if @post.save
         # 変数flash[:notice]に、指定されたメッセージを代入してください
         flash[:notice] = "post successfully created"
@@ -144,17 +143,12 @@ class StudyController < ApplicationController
       else
         @id = params[:id]
         @question = Question.where(id: @id)
-        @posts = Answerimage.where(q_id: @id)
+        @posts = Answer.where(q_id: @id)
         @comment = Comment.new
         flash[:error] = "failed to post "
         render("/study/answers")
       end
   end
-
-  private
-      def permit_params
-          params.require(:post).permit(:answer, :image)
-      end
 
 
   def create_C
@@ -162,14 +156,14 @@ class StudyController < ApplicationController
 
       if @comment.save
         # 変数flash[:notice]に、指定されたメッセージを代入してください
-        @post = Answerimage.find_by(id:params[:id])
+        @post = Answer.find_by(id:params[:id])
         flash[:notice] = "post successfully created"
         redirect_to("/answers/#{@post.q_id}")
       else
         @id = params[:id]
-        @posts = Answerimage.where(id: @id)
+        @posts = Answer.where(id: @id)
         @question = Question.where(id: @posts[0].q_id)
-        @post = Answerimage.new
+        @post = Answer.new
         flash[:error] = "failed to post "
         render("/study/answers")
       end

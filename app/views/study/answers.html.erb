@@ -63,7 +63,6 @@
                     <% else %>
                     <% @posts.each do |post| %>
                         <table class="answer_column">
-                            <%= image_tag post.image.thumb.url %>
                             <h3 class="post_answer"><%= post.answer %></h3>
                             <div class="comment">
                                 <div class="comment_1">
@@ -134,32 +133,7 @@
                    <% end %>
                 </div>
 
-                <%= form_for :post, url: "/answer/create/#{@question[0].id}"  do |f| %>
-                    <div class="form-body">
-                        <h1 class="rate">post your answer</h1>
-                        <% @post.errors.full_messages.each do |message| %>
-                          <div class="form-error">
-                              <% if message.include? "Answer" %>
-                                  <%= message %>
-                              <% end %>
-                          </div>
-                        <% end %>
-                        <p><%=f.label "write your answer" %><br><%= f.text_area :answer, :cols => 30, :rows => 5 %></p>
-                        <% @post.errors.full_messages.each do |message| %>
-                            <div class="form-error">
-                                <% if message.include? "Image" %>
-                                    <%= message %>
-                                <% end %>
-                            </div>
-                        <% end %>
-                        <p><%=f.label "upload image" %><br><%= f.file_field :image %></p>
-                        <div class="input">
-                          <input class = "input_bottom" type="submit" value="submit">
-                        </div>
-                    </div>
-                <% end %>
 
-<!---
                 <%= form_tag("/answer/create/#{@question[0].id}") do %>
                     <div class="form-body">
                         <h1 class="rate">post your answer</h1>
@@ -178,7 +152,8 @@
                         </div>
                     </div>
                 <% end %>
---->
+
+
               </div>
             </div>
         </div>
