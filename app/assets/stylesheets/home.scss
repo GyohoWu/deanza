@@ -71,11 +71,22 @@ header a:hover{
 }
 
 .header-menu-right a{
-  color: rgba(107, 106, 102,0.6);
-  padding: 10px;
-  font-size:20px;
-  font-weight: 700;
-  line-height: 60px;
+    line-height: 60px;
+    padding: 10px;
+    font-size:20px;
+    color: rgba(107, 106, 102,0.6);
+    display: block;
+    font-weight: 700;
+    float: left;
+/*
+      display: block;
+      float: left;
+      color: rgba(107, 106, 102,0.6);
+      padding: 10px;
+      font-size:20px;
+      font-weight: 700;
+      line-height: 60px;
+      */
 }
 
 .header-menu-right a:hover{
@@ -86,6 +97,7 @@ header a:hover{
 .container {
   padding-right:15%;
   padding-left:10%;
+  margin:0 auto;
 }
 
 .container-2 {
@@ -110,10 +122,6 @@ header a:hover{
 
 .header-menu-right {
   float: right;
-}
-
-.header-menu-right li {
-  float: left;
 }
 
 .top {

@@ -1,13 +1,94 @@
 
 
-@media (max-width: 1000px) {
+@media all and (max-width: 1050px) {
+
+    .low{
+         padding-bottom: 19%;
+    }
+
     .small{
-        font-size:50%;
+        font-size:48%;
+    }
+
+    .small_font{
+        font-size:18px;
+    }
+
+    .small-2{
+        font-size:37%;
+    }
+
+    .class_info_2{
+        padding-bottom: 30%;
+    }
+
+    .class_info_3{
+        padding-bottom: 8%;
+    }
+
+    .ipad-modal{
+        font-size:15px;
+        padding-top:4px;
+    }
+
+    .ipad-modal-2{
+        font-size:15px;
+        padding: 10px 0px;
+        height:150px;
+    }
+
+    .header-logo{
+        margin-top:2%;
+    }
+}
+
+@media all and (max-width: 500px){
+
+    .header-logo{
+        width:30%;
+        margin-top:25px;
     }
 
     .header-menu-right a{
-        line-height: 0px;
-        padding-top: 0px;
+        font-size:8px;
+        padding: 10px 5px;
+    }
+
+    header .container{
+        padding-right:8%;
+    }
+
+    .class-info{
+        padding-bottom: 30%;
+    }
+
+    .class_info_2{
+        padding-bottom: 40%;
+    }
+
+    .section-title{
+        padding-top:30px;
+    }
+
+    .small-iphone{
+        font-size:17px;
+    }
+
+    .iphone_size{
+        font-size:10px;
+    }
+
+    .class_info_3{
+        padding-right:10%;
+        padding-left:5%;
+        margin:0 auto;
+        padding-bottom: 10%;
+    }
+
+    .center{
+        margin-left:22%;
+        margin-right:45px;
+
     }
 
 }
