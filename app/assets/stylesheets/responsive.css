@@ -128,6 +128,10 @@
 
 @media all and (max-width: 500px){
 
+    .iphone_key{
+        margin-top:100px;
+    }
+
     .modal_2 a{
         font-size:13px;
         line-height: 40px;
@@ -207,10 +211,6 @@
 
     .like_function p{
         font-size:10px;
-    }
-
-    .class-name-2{
-        margin-top:100px;
     }
 
     .question_section h1{
