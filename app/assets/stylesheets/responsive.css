@@ -82,7 +82,7 @@
         padding-right:10%;
         padding-left:5%;
         margin:0 auto;
-        padding-bottom: 10%;
+        padding-bottom: 90px;
     }
 
     .center{
@@ -90,5 +90,152 @@
         margin-right:45px;
 
     }
+
+    .class_info_3 p{
+        font-size:13px;
+    }
+
+    .modal{
+      height: 80px;
+      top:75px;
+      position:fixed;
+      z-index: 10;
+      padding-right:2.5%;
+      padding-left:2.5%;
+      margin-left:13%;
+      box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+      border:1px solid rgba(0,0,0,0.1);
+      width:70%;
+      background-color: white;
+      display:none;
+      font-size:10px;
+    }
+
+    .underline{
+        padding:0px 5px;
+        line-height: 40px;
+    }
+
+    .iphone_modal{
+        height: 90px;
+    }
+
+    .iphone_modal .underline{
+        line-height: 30px;
+    }
+
+}
+
+@media all and (max-width: 500px){
+
+    .modal_2 a{
+        font-size:13px;
+        line-height: 40px;
+    }
+
+    table{
+        font-size:20px;
+    }
+
+    .class_section a{
+        font-size:8px;
+    }
+
+    .iphone_font{
+        font-size:5px;
+    }
+
+    .languages .subject{
+        height:15px;
+        width: 15px;
+        padding:1.6% 2.2%;
+        width:13%;
+        margin-right:6%;
+        margin-bottom:25px;
+        color:white;
+        border-radius: 30px;
+        font-size:8px;
+        float:left;
+        background-color:#e8930b;
+        border:1px solid #e8930b;
+        color:white;
+    }
+
+    .languages .subject:hover{
+      color:#e8930b;
+      background-color:white
+    }
+
+    .languages_2 .subject{
+        height:15px;
+        width: 15px;
+        padding:1.6% 2.2%;
+        width:13%;
+        margin-right:6%;
+        margin-bottom:25px;
+        background-color:rgb(16, 25, 201);
+        border:1px solid rgb(16, 25, 201);
+        color:white;
+        border-radius: 30px;
+        font-size:8px;
+        float:left;
+        color:white;
+    }
+
+    .languages_2 .subject:hover{
+      color:rgb(16, 25, 201);
+      background-color:white
+    }
+
+
+
+    .languages_2{
+        margin-bottom:80px;
+    }
+
+    .class_section .section-title{
+        margin-top:25px;
+    }
+
+    .posts-index{
+        margin-top:100px;
+    }
+
+    font{
+        font-size:10px;
+    }
+
+    .like_function p{
+        font-size:10px;
+    }
+
+    .class-name-2{
+        margin-top:100px;
+    }
+
+    .question_section h1{
+        font-size:20px;
+    }
+
+    .post_link{
+        font-size:15px;
+    }
+
+    .posts-new{
+        margin-top:25%;
+    }
+
+    .post_page{
+        margin-top:25%;
+    }
+
+    .answer{
+        margin: 60px 0;
+    }
+
+    .post_answer{
+        margin-bottom:40px;
+    }
+
 
 }
