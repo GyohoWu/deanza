@@ -82,6 +82,8 @@ Rails.application.routes.draw do
     post "/answer/create/:id" => "study#create_A"
     get "/answer/create/:id" => "study#redirect"
 
+    get "/comment/createPage/:id" => "study#comment"
+
     post "/comment/create/:id" => "study#create_C"
     get "/comment/create/:id" => "study#redirect"
 

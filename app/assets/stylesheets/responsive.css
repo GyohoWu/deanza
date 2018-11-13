@@ -2,6 +2,10 @@
 
 @media all and (max-width: 1050px) {
 
+    .search{
+        border-width: medium;
+    }
+
     .low{
          padding-bottom: 19%;
     }
@@ -243,5 +247,81 @@
         margin-bottom:40px;
     }
 
+    @media all and (max-width: 400px){
 
+        .header-menu-right a{
+            font-size:7px;
+            padding: 10px 4.5px;
+        }
+
+        .small{
+            font-size:40%;
+        }
+
+        .small-2{
+            font-size:32%;
+        }
+
+        .class-info{
+            padding-bottom: 40%;
+        }
+
+        .iphone_modal{
+            font-size:8px;
+        }
+
+        .modal_4 a{
+            font-size:10px;
+            line-height: 40px;
+        }
+
+        .top-description p{
+            font-size:14px;
+        }
+
+        .class_info_3{
+            padding-right:10%;
+            padding-left:5%;
+            margin:0 auto;
+            padding-bottom: 90px;
+        }
+
+        .center{
+            margin-left:22%;
+            margin-right:45px;
+
+        }
+
+        .class_info_3 p{
+            font-size:11px;
+        }
+
+        #study p{
+           font-size:14.5px;
+        }
+
+        .table-2{
+            font-size:17px;
+        }
+
+        .small-3{
+            font-size:43%;
+        }
+
+        .essay{
+            font-size:20px;
+        }
+
+        .long-ver{
+            width:250px;
+        }
+
+        .input_bottom{
+            margin-top:7px;
+            height:40px;
+            width:70px;
+            font-size:13px;
+        }
+
+    }
 }

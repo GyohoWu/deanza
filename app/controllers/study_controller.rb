@@ -150,8 +150,13 @@ class StudyController < ApplicationController
       end
   end
 
+  def comment
+      @comment = Comment.new
+      @post_id = params[:id]
+  end
 
   def create_C
+
       @comment = Comment.new(content: params[:com], a_id:params[:id])
 
       if @comment.save
@@ -160,15 +165,10 @@ class StudyController < ApplicationController
         flash[:notice] = "post successfully created"
         redirect_to("/answers/#{@post.q_id}")
       else
-        @id = params[:id]
-        @posts = Answer.where(id: @id)
-        @question = Question.where(id: @posts[0].q_id)
-        @post = Answer.new
+        @post_id = params[:id]
         flash[:error] = "failed to post "
-        render("/study/answers")
+        render("/study/comment")
       end
-
   end
-
 
 end

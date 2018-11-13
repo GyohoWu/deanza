@@ -33,6 +33,8 @@
         <div class="post_page">
             <div class="posts-new">
               <div class="container">
+                <div class="iphone_key">
+                </div>
                 <h1 class="class-title"><%= @question[0].title %></h1>
 
                 <div class="question">
@@ -60,18 +62,9 @@
                                 </div>
                                 <div class="comment_2">
                                     <div class="post_comment">
-                                        <%= form_tag("/comment/create/#{post.id}") do %>
-                                            <% @comment.errors.full_messages.each do |message| %>
-                                              <div class="form-error">
-                                                  <% if message.include? "Content" %>
-                                                      <%= message %>
-                                                  <% end %>
-                                              </div>
-                                            <% end %>
-                                             <textarea class= "comment" name="com" placeholder="add comment"><%= @comment.content %></textarea>
-                                             <input class = "input input_bottom_2" type="submit" value="submit">
-                                        <% end %>
-                                    </div>
+                                        <%= link_to("post comments", "/comment/createPage/#{post.id}") %>
+                                     </div>
+                                </div>
                                     <div class="like">
                                         <% if not Dislike.find_by(id: @current_user, dislike_id: @dislike_post )%>
                                             <% if Like.find_by(id: @current_user, like_id: @like_post) %>
@@ -113,13 +106,11 @@
                                             <% end %>
                                         <% end %>
                                        </div>
-                                </div>
-                            </div>
+                             </div>
                         </table>
                      <div class="border"></div>
                      <% end %>
                    <% end %>
-                </div>
 
 
                 <%= form_tag("/answer/create/#{@question[0].id}") do %>
@@ -139,9 +130,8 @@
                           <input class = "input_bottom" type="submit" value="submit">
                         </div>
                     </div>
-                <% end %>
-
-
+                 <% end %>
+                </div>
               </div>
             </div>
         </div>

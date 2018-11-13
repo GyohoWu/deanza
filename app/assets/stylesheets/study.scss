@@ -20,7 +20,8 @@
     background-color:rgb(28, 175, 161);
 }
 
-.comment{
+.comment_1{
+    margin-top:120px;
     font-size:20px;
     width:70%;
 }
@@ -116,7 +117,7 @@
 }
 
 .like{
-    float:right;
+    float:left;
 }
 
 .like p{
@@ -127,6 +128,9 @@
 
 .post_comment{
     float:left;
+    padding-right:10%;
+    color:#757ae5;
+    font-size:200%;
 }
 
 .border{

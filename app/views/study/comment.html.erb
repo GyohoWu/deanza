@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Society</title>
+    <link rel="stylesheet" href="responsive.css">
+    <link href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" rel="stylesheet">
+  </head>
+  <body>
+
+      <header>
+        <div class="container">
+          <div class="header-title">
+            <a href="/">
+                <image class="header-logo scroll" src = "/debook.jpg">
+            </a>
+            <div class="header-menu-right">
+               <a href="/" class="underline">home</a>
+               <a class="underline" id="t_modal">transfer</a>
+               <a class="underline" id="c_modal">classes</a>
+               <a class="underline" id="s_modal">study</a>
+               <a  class="underline" id="ch_modal">chat</a>
+               <a class="underline" id="meet_modal">project</a>
+            </div>
+        　</div>
+        </div>
+      </header>
+
+    <div class="click_disappear">
+        <div class="post_page">
+            <div class="posts-new">
+              <div class="container">
+                <div class="iphone_key">
+                </div>
+                <h1 class="rate">post your comments</h1>
+                <%= form_tag("/comment/create/#{@post_id}") do %>
+                  <div class="form">
+                    <div class="form-body">
+                        <p>write the comments</p>
+
+                        <% @comment.errors.full_messages.each do |message| %>
+                          <div class="form-error">
+                              <% if message.include? "Content" %>
+                                  <%= message %>
+                              <% end %>
+                          </div>
+                        <% end %>
+                        <textarea class = "long-ver" name= "com" placeholder="add comment"><%= @comment.content  %></textarea>
+                        <div class="input">
+                            <input class = "input_bottom" type="submit" value="submit">
+                        </div>
+                    </div>
+                  </div>
+                <% end %>
+
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-section">
+      <div class="section-title">
+        Follow US!
+      </div>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+
+    <footer>
+       © 2018 Yaofeng Wu
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
