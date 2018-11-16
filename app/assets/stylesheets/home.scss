@@ -122,6 +122,7 @@ header a:hover{
 
 .header-menu-right {
   float: right;
+  display:block;
 }
 
 .top {
@@ -178,7 +179,9 @@ header a:hover{
 }
 
 #more-text{
+  color: rgba(255, 255, 255, 0.8);
   display:none;
+  line-height:25px;
 }
 
 

@@ -6,6 +6,10 @@
         border-width: medium;
     }
 
+    .header-menu-right{
+        display:none;
+    }
+
     .low{
          padding-bottom: 19%;
     }
@@ -47,6 +51,14 @@
 }
 
 @media all and (max-width: 500px){
+
+    #more-text{
+        font-size:17px;
+    }
+
+    .header-menu-right{
+        display:none;
+    }
 
     .header-logo{
         width:30%;
@@ -248,6 +260,10 @@
     }
 
     @media all and (max-width: 400px){
+
+        .header-menu-right{
+            display:none;
+        }
 
         .header-menu-right a{
             font-size:7px;
