@@ -43,48 +43,67 @@ class StudyController < ApplicationController
   def post
       @post = Question.new
       @sort = params[:sort]
-      arr = params[:sort].split(/(\d+)/)
+
       classList = {"cis" => "CIS", "bio" => "Biology", "chem" => "Chemistry", "phys" =>"Physics", "art" => "Art", "dance" =>"Dance", "photo" =>"Photograghy",
       "thea" => "Theater", "math" =>"Math", "eng" => "English", "esl" =>"ESL", "acc" => "Accounting", "econ" => "Economics", "bus" => "Business",
       "anth" => "Anthlopology", "ling" => "Linguitics", "philo" => "Philosophy", "humi" => "Humanity", "soc" =>"Sociology", "psych" => "Psychology",
       "poli" => "Poli Science", "hist" => "Histry", "com" => "Communication", "astro" => "Astronomy", "geo" => "Geography", "met" => "Meteorology",
       "esci" => "Environmental Studies", "ics" => "Intercultural Studies", "japa" => "Japanese", "mand" => "Mandarin", "french" => "French",
       "ger" => "Germany", "kore" => "Korean", "ital" => "Italian", "russ" => "Russian", "spanish" => "Spanish"}
-      @className = classList[arr[0]] + " " + arr[1]
-      if arr.length == 3
-          @className += arr[2]
+
+      if @sort == "japa" || @sort == "mand" || @sort == "french" || @sort == "ger" || @sort == "kore" || @sort == "ital" || @sort == "russ" || @sort == "spanish"
+         @className = classList[@sort]
+      else
+          arr = params[:sort].split(/(\d+)/)
+          @className = classList[arr[0]] + " " + arr[1]
+          if arr.length == 3
+              @className += arr[2]
+          end
       end
   end
 
   def questions
       @posts = Question.where(sort: "#{params[:sort]}").all.order(created_at: :desc)
       @sort = params[:sort]
-      arr = params[:sort].split(/(\d+)/)
+
       classList = {"cis" => "CIS", "bio" => "Biology", "chem" => "Chemistry", "phys" =>"Physics", "art" => "Art", "dance" =>"Dance", "photo" =>"Photograghy",
       "thea" => "Theater", "math" =>"Math", "eng" => "English", "esl" =>"ESL", "acc" => "Accounting", "econ" => "Economics", "bus" => "Business",
       "anth" => "Anthlopology", "ling" => "Linguitics", "philo" => "Philosophy", "humi" => "Humanity", "soc" =>"Sociology", "psych" => "Psychology",
       "poli" => "Poli Science", "hist" => "Histry", "com" => "Communication", "astro" => "Astronomy", "geo" => "Geography", "met" => "Meteorology",
       "esci" => "Environmental Studies", "ics" => "Intercultural Studies", "japa" => "Japanese", "mand" => "Mandarin", "french" => "French",
       "ger" => "Germany", "kore" => "Korean", "ital" => "Italian", "russ" => "Russian", "spanish" => "Spanish"}
-      @className = classList[arr[0]] + " " + arr[1]
-      if arr.length == 3
-          @className += arr[2]
+
+      if @sort == "japa" || @sort == "mand" || @sort == "french" || @sort == "ger" || @sort == "kore" || @sort == "ital" || @sort == "russ" || @sort == "spanish"
+         @className = classList[@sort]
+      else
+          arr = params[:sort].split(/(\d+)/)
+          @className = classList[arr[0]] + " " + arr[1]
+          if arr.length == 3
+              @className += arr[2]
+          end
       end
 
   end
 
   def create
 
-      arr = params[:sort].split(/(\d+)/)
+      @sort = params[:sort]
+
       classList = {"cis" => "CIS", "bio" => "Biology", "chem" => "Chemistry", "phys" =>"Physics", "art" => "Art", "dance" =>"Dance", "photo" =>"Photograghy",
       "thea" => "Theater", "math" =>"Math", "eng" => "English", "esl" =>"ESL", "acc" => "Accounting", "econ" => "Economics", "bus" => "Business",
       "anth" => "Anthlopology", "ling" => "Linguitics", "philo" => "Philosophy", "humi" => "Humanity", "soc" =>"Sociology", "psych" => "Psychology",
       "poli" => "Poli Science", "hist" => "Histry", "com" => "Communication", "astro" => "Astronomy", "geo" => "Geography", "met" => "Meteorology",
       "esci" => "Environmental Studies", "ics" => "Intercultural Studies", "japa" => "Japanese", "mand" => "Mandarin", "french" => "French",
       "ger" => "Germany", "kore" => "Korean", "ital" => "Italian", "russ" => "Russian", "spanish" => "Spanish"}
-      @className = classList[arr[0]] + " " + arr[1]
-      if arr.length == 3
-          @className += arr[2]
+
+      if @sort == "japa" || @sort == "mand" || @sort == "french" || @sort == "ger" || @sort == "kore" || @sort == "ital" || @sort == "russ" || @sort == "spanish"
+         @className = classList[@sort]
+      else
+          arr = params[:sort].split(/(\d+)/)
+          @className = classList[arr[0]] + " " + arr[1]
+          if arr.length == 3
+              @className += arr[2]
+          end
       end
 
       @post = Question.new(prof: params[:prof] , sort: params[:sort] , title: params[:title], question: params[:question])
@@ -93,7 +112,6 @@ class StudyController < ApplicationController
         flash[:notice] = "post successfully created"
         redirect_to("/study/#{params[:sort]}")
       else
-        @sort = params[:sort]
         flash[:error] = "failed to post "
         render("/study/post")
       end
@@ -103,23 +121,34 @@ class StudyController < ApplicationController
     redirect_to("/study/#{params[:sort]}")
   end
 
+  def redirect_c
+    redirect_to("/comment/createPage/#{params[:id]}")
+  end
+
   def search
       if params[:name] == ""
           redirect_to("/study/#{params[:sort]}")
       else
           @posts = Question.where(sort: "#{params[:sort]}").where("prof ILIKE ?", "%#{params[:name]}%").all.order(created_at: :desc)
           @sort = params[:sort]
-          arr = params[:sort].split(/(\d+)/)
+
           classList = {"cis" => "CIS", "bio" => "Biology", "chem" => "Chemistry", "phys" =>"Physics", "art" => "Art", "dance" =>"Dance", "photo" =>"Photograghy",
           "thea" => "Theater", "math" =>"Math", "eng" => "English", "esl" =>"ESL", "acc" => "Accounting", "econ" => "Economics", "bus" => "Business",
           "anth" => "Anthlopology", "ling" => "Linguitics", "philo" => "Philosophy", "humi" => "Humanity", "soc" =>"Sociology", "psych" => "Psychology",
           "poli" => "Poli Science", "hist" => "Histry", "com" => "Communication", "astro" => "Astronomy", "geo" => "Geography", "met" => "Meteorology",
           "esci" => "Environmental Studies", "ics" => "Intercultural Studies", "japa" => "Japanese", "mand" => "Mandarin", "french" => "French",
           "ger" => "Germany", "kore" => "Korean", "ital" => "Italian", "russ" => "Russian", "spanish" => "Spanish"}
-          @className = classList[arr[0]] + " " + arr[1]
-          if arr.length == 3
-              @className += arr[2]
+
+          if @sort == "japa" || @sort == "mand" || @sort == "french" || @sort == "ger" || @sort == "kore" || @sort == "ital" || @sort == "russ" || @sort == "spanish"
+             @className = classList[@sort]
+          else
+              arr = params[:sort].split(/(\d+)/)
+              @className = classList[arr[0]] + " " + arr[1]
+              if arr.length == 3
+                  @className += arr[2]
+              end
           end
+
           render("/study/questions")
       end
   end

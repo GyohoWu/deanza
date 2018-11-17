@@ -85,7 +85,7 @@ Rails.application.routes.draw do
     get "/comment/createPage/:id" => "study#comment"
 
     post "/comment/create/:id" => "study#create_C"
-    get "/comment/create/:id" => "study#redirect"
+    get "/comment/create/:id" => "study#redirect_c"
 
 
 # project room
