@@ -7,7 +7,7 @@ class ClassController < ApplicationController
         arr = params[:sort].split(/(\d+)/)
         classList = {"cis" => "CIS", "bio" => "Biology", "chem" => "Chemistry", "phys" =>"Physics", "art" => "Art", "dance" =>"Dance", "photo" =>"Photograghy",
         "thea" => "Theater", "math" =>"Math", "eng" => "English", "esl" =>"ESL", "acc" => "Accounting", "econ" => "Economics", "bus" => "Business",
-        "anth" => "Anthlopology", "ling" => "Linguitics", "philo" => "Philosophy", "humi" => "Humanity", "soc" =>"Sociology", "psych" => "Psychology",
+        "anth" => "Anthropology", "ling" => "Linguitics", "philo" => "Philosophy", "humi" => "Humanity", "soc" =>"Sociology", "psych" => "Psychology",
         "poli" => "Poli Science", "hist" => "Histry", "com" => "Communication", "astro" => "Astronomy", "geo" => "Geography", "met" => "Meteorology",
         "esci" => "Environmental Studies", "ics" => "Intercultural Studies", "japa" => "Japanese", "mand" => "Mandarin", "french" => "French",
         "ger" => "Germany", "kore" => "Korean", "ital" => "Italian", "russ" => "Russian", "spanish" => "Spanish"}
@@ -23,7 +23,7 @@ class ClassController < ApplicationController
         arr = params[:sort].split(/(\d+)/)
         classList = {"cis" => "CIS", "bio" => "Biology", "chem" => "Chemistry", "phys" =>"Physics", "art" => "Art", "dance" =>"Dance", "photo" =>"Photograghy",
         "thea" => "Theater", "math" =>"Math", "eng" => "English", "esl" =>"ESL", "acc" => "Accounting", "econ" => "Economics", "bus" => "Business",
-        "anth" => "Anthlopology", "ling" => "Linguitics", "philo" => "Philosophy", "humi" => "Humanity", "soc" =>"Sociology", "psych" => "Psychology",
+        "anth" => "Anthropology", "ling" => "Linguitics", "philo" => "Philosophy", "humi" => "Humanity", "soc" =>"Sociology", "psych" => "Psychology",
         "poli" => "Poli Science", "hist" => "Histry", "com" => "Communication", "astro" => "Astronomy", "geo" => "Geography", "met" => "Meteorology",
         "esci" => "Environmental Studies", "ics" => "Intercultural Studies", "japa" => "Japanese", "mand" => "Mandarin", "french" => "French",
         "ger" => "Germany", "kore" => "Korean", "ital" => "Italian", "russ" => "Russian", "spanish" => "Spanish"}
