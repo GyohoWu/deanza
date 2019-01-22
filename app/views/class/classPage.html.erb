@@ -120,7 +120,7 @@
                     </div>
                   <% end %>
                   <textarea class = "short-ver-1" name= "prof" placeholder="professor name"><%= @post.prof %></textarea>
-                  <p>difficulity(5: most difficult)</p>
+                  <p>difficulity  (5: most difficult)</p>
                   <% @post.errors.full_messages.each do |message| %>
                     <div class="form-error">
                         <% if message.include? "Rate" %>
