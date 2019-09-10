@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   
-    match "*path" => redirect("https://www.mysite.com/%{path}"), :constraints => { :protocol => "http://" }
-    match "*path" => redirect("https://www.mysite.com/%{path}"), :constraints => { :subdomain => "" }
-
     #like method
 
     post "likes/:post_id/:sort/create" => "likes#create"
